@@ -30,10 +30,10 @@ p {
 }
 
 .select {
-  background-color: hsl(213, 19%, 18%);
+  background-color: hsl(211, 19%, 24%);
   color: hsl(25, 97%, 53%);
   margin: 2em 0 2em 0;
-  padding: 0.5em;
+  padding: 0.5em 1em 0.5em 1em;
   border-radius: 99px;
 }
 
@@ -62,7 +62,7 @@ ul {
 }
 
 .number {
-  background-color: hsl(213, 19%, 18%);
+  background-color: hsl(211, 19%, 24%);
   border-radius: 50%;
   width: 45px;
   height: 45px;
@@ -75,19 +75,27 @@ ul {
 }
 
 .number:hover {
-  background-color: hsl(216, 12%, 54%);
+  background-color: hsl(25, 2%, 53%);
   color: white;
 }
 
-.active {
+.number.active {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   background-color: hsl(25, 97%, 53%);
   color: white;
 }
 
-.number:active {
+/* .number:active {
   background-color: hsl(25, 97%, 53%);
   color: white;
-}
+} */
 
 .button {
   font-family: "Overpass", sans-serif;
@@ -109,4 +117,8 @@ ul {
 
 input {
   display: none;
+}
+.back {
+  margin-top: 10px;
+  cursor: pointer;
 }

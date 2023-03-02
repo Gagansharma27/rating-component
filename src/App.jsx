@@ -4,6 +4,13 @@ import "./App.css";
 function App() {
   const [submit, setsubmit] = useState(false);
   const [rating, setrating] = useState(0);
+  const [activeRating, setActiveRating] = useState({
+    oneStar: false,
+    twoStar: false,
+    threeStar: false,
+    fourStar: false,
+    fiveStar: false,
+  });
 
   const handleSubmit = () => {
     setsubmit(true);
@@ -19,6 +26,12 @@ function App() {
             We appreciate you taking out time to give us rating. If you ever
             need more support, Don't hesitate to get in touch
           </p>
+          <button
+            className="back"
+            onClick={() => setsubmit((submit) => !submit)}
+          >
+            🔙
+          </button>
         </div>
       ) : (
         <div className="main">
@@ -29,51 +42,81 @@ function App() {
           </p>
           <ul className="numbers">
             <li
-              className="number"
+              className={activeRating.oneStar ? "number active" : "number"}
               value={1}
               onClick={(e) => {
                 setrating(e.target.value);
-                e.currentTarget.classList.toggle("active");
+                setActiveRating({
+                  oneStar: true,
+                  twoStar: false,
+                  threeStar: false,
+                  fourStar: false,
+                  fiveStar: false,
+                });
               }}
             >
               1
             </li>
             <li
-              className="number"
+              className={activeRating.twoStar ? "number active" : "number"}
               value={2}
               onClick={(e) => {
                 setrating(e.target.value);
-                e.currentTarget.classList.toggle("active");
+                setActiveRating({
+                  oneStar: false,
+                  twoStar: true,
+                  threeStar: false,
+                  fourStar: false,
+                  fiveStar: false,
+                });
               }}
             >
               2
             </li>
             <li
-              className="number"
+              className={activeRating.threeStar ? "number active" : "number"}
               value={3}
               onClick={(e) => {
                 setrating(e.target.value);
-                e.currentTarget.classList.toggle("active");
+                setActiveRating({
+                  oneStar: false,
+                  twoStar: false,
+                  threeStar: true,
+                  fourStar: false,
+                  fiveStar: false,
+                });
               }}
             >
               3
             </li>
             <li
-              className="number"
+              className={activeRating.fourStar ? "number active" : "number"}
               value={4}
               onClick={(e) => {
                 setrating(e.target.value);
-                e.currentTarget.classList.toggle("active");
+                setActiveRating({
+                  oneStar: false,
+                  twoStar: false,
+                  threeStar: false,
+                  fourStar: true,
+                  fiveStar: false,
+                });
               }}
             >
               4
             </li>
             <li
-              className="number"
+              className={activeRating.fiveStar ? "number active" : "number"}
               value={5}
               onClick={(e) => {
                 setrating(e.target.value);
-                e.currentTarget.classList.toggle("active");
+                setActiveRating({
+                  oneStar: false,
+                  twoStar: false,
+                  threeStar: false,
+                  fourStar: false,
+                  fiveStar: true,
+                });
               }}
             >
               5
